@@ -57,7 +57,7 @@ smart-open==5.2.1
 sniffio==1.2.0
 sortedcontainers==2.4.0
 soupsieve==2.2.1
-tensorflow==2.6.0
+tensorflow-cpu==2.6.0
 termcolor==1.1.0
 trio==0.19.0
 trio-websocket==0.9.2
