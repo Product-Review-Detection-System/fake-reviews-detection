@@ -8,7 +8,6 @@ from Model import loadModel, prepareData
 from WebScapper import get_reviews
 from flask import Flask, jsonify, request
 import numpy as np
-import pandas as pd
 
 
 app = Flask(__name__)

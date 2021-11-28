@@ -1,12 +1,12 @@
-import numpy as np
+# import numpy as np
 import pandas as pd
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
-from keras.models import Model, Sequential, load_model
+from keras.models import load_model
 
 
 def loadModel():
-    model =  load_model('Word2Vec.hdf5')
+    model = load_model('Word2Vec.hdf5')
     return model
 
 def prepareData(inputData):
