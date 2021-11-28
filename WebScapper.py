@@ -1,32 +1,32 @@
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.chrome.options import Options
+# from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
+# from selenium.webdriver.common.by import By
+# from selenium.common.exceptions import TimeoutException
+# from selenium.webdriver.chrome.options import Options
 import requests
 
 
 
-def get_reviews_via_selenium(link):
-    chrome_options = Options()  
-    chrome_options.add_argument("--headless")
-    browser = webdriver.Chrome(executable_path='./chromedriver', chrome_options=chrome_options)
-    browser.get(link)
-    delay = 5
-    try:
-        myElem = WebDriverWait(browser, delay).until(
-            EC.presence_of_element_located((By.CLASS_NAME, 'next-pagination-list'))
-        )
-        print("Page is ready!")
-    except TimeoutException:
-        print("Loading took too much time!")
-
-    item_id = browser.execute_script('return items.id')
-    browser.quit()
-
-    print("Item Id:", item_id)
-    return get_reviews(item_id=item_id)
+# def get_reviews_via_selenium(link):
+#     chrome_options = Options()
+#     chrome_options.add_argument("--headless")
+#     browser = webdriver.Chrome(executable_path='./chromedriver', chrome_options=chrome_options)
+#     browser.get(link)
+#     delay = 5
+#     try:
+#         myElem = WebDriverWait(browser, delay).until(
+#             EC.presence_of_element_located((By.CLASS_NAME, 'next-pagination-list'))
+#         )
+#         print("Page is ready!")
+#     except TimeoutException:
+#         print("Loading took too much time!")
+#
+#     item_id = browser.execute_script('return items.id')
+#     browser.quit()
+#
+#     print("Item Id:", item_id)
+#     return get_reviews(item_id=item_id)
 
 def get_reviews(url=None, item_id=None):
     if not item_id and not url:
