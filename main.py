@@ -23,27 +23,36 @@ def detectFakeReviews(url = None):
 
 
     #getting all reviews from scrapping.
-    data = get_reviews(url)
+    rawData = get_reviews(url)
 
     #prepare data
-    data = prepareData(data)
+    reviewData = prepareData(rawData)
 
     #predict on data
-    pred = model.predict(data)
-    return pred
+    pred = model.predict(reviewData['padData'])
+    return {
+        "predictions": pred,
+        "reviews": reviewData['reviews'],
+        "ratings": rawData['model']['ratings'],
+        "itemId": rawData["model"]['item']["itemId"],
+        "itemTitle": rawData["model"]['item']["itemTitle"],
+        "itemPic": rawData["model"]['item']["itemPic"],
+        "itemUrl": rawData["model"]['item']["itemUrl"]
+    }
 
 @app.route('/api/v1/', methods=['POST'])
 def index():
     web_address = request.get_json()['web_address']
 
-    data = np.array(detectFakeReviews(url=web_address)).flatten().tolist()
-    res = { "data": data }
+    result = detectFakeReviews(url=web_address)
+    result['predictions'] = np.array(result['predictions']).flatten().tolist()
+    result['reviews'] = np.array(result['reviews']).flatten().tolist()
+    res = {"result": result}
 
     return jsonify(res)
 
-app.run()
 
-#
-# if __name__ == '__main__':
-#     detectFakeReviews(link)
+
+if __name__ == '__main__':
+    app.run()
 

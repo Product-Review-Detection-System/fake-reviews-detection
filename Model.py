@@ -29,4 +29,4 @@ def prepareData(inputData):
     tokenizer = Tokenizer()
     tokenizer.fit_on_texts(data.flatten())
     padData = pad_sequences(tokenizer.texts_to_sequences((data.flatten())), maxlen=SEQUENCE_LENGTH)
-    return padData
+    return {"padData": padData, "reviews": data}

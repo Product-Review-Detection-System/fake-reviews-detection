@@ -47,7 +47,6 @@ def get_reviews(url=None, item_id=None):
 
     return data
 
-
 # if __name__ == '__main__':
 #
 #     link = "https://www.daraz.pk/products/v-shape-multi-function-mobile-phone-holder-stand-portable-phone-adjustable-stand-universal-foldable-cell-stand-holder-mount-for-smartphone-tablet-v-shaped-portable-i3176164-s1354830759.html?spm=a2a0e.home.just4u.10.67a74937kcLsYT&scm=1007.28811.244313.0&pvid=cb18de5a-477f-447c-9420-acddf1e8a62c&clickTrackInfo=pvid%3Acb18de5a-477f-447c-9420-acddf1e8a62c%3Bchannel_id%3A0000%3Bmt%3Ahot%3Bitem_id%3A3176164%3B"
