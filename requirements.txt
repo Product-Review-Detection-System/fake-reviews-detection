@@ -51,11 +51,6 @@ smart-open==5.2.1
 sniffio==1.2.0
 sortedcontainers==2.4.0
 soupsieve==2.2.1
-tensorboard==2.7.0
-tensorboard-data-server==0.6.1
-tensorboard-plugin-wit==1.8.0
-tensorflow==2.6.0
-tensorflow-estimator==2.6.0
 termcolor==1.1.0
 trio==0.19.0
 trio-websocket==0.9.2
